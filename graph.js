@@ -40,8 +40,9 @@ class Graph {
   }
 
   // this function returns an array of Node values using DFS
-  depthFirstSearch(start) {
+  depthFirstSearch(start, seen=new Set([start]), vals=[]) {
     // iterative
+
     // let stack = [start];
     // let seen = new Set();
     // let vals = [];
@@ -60,6 +61,19 @@ class Graph {
     // }
 
     // return vals;
+
+    if (start === null) return vals;
+
+    vals.push(start.value);
+
+    for (let neighbor of start.adjacent){
+      if (!seen.has(neighbor)){
+        seen.add(neighbor);
+        this.depthFirstSearch(neighbor, seen, vals);
+      }
+    }
+
+    return vals;
   }
 
   // this function returns an array of Node values using BFS

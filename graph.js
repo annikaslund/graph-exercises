@@ -29,16 +29,43 @@ class Graph {
   }
 
   // this function accepts two vertices and updates their adjacent values to remove the other vertex
-  removeEdge(v1, v2) {}
+  removeEdge(v1, v2) {
+    v1.adjacent.delete(v2);
+    v2.adjacent.delete(v1);
+  }
 
   // this function accepts a vertex and removes it from the nodes property, it also updates any adjacency lists that include that vertex
-  removeVertex(vertex) {}
+  removeVertex(vertex) {
+    this.nodes.delete(vertex);
+  }
 
   // this function returns an array of Node values using DFS
-  depthFirstSearch(start) {}
+  depthFirstSearch(start) {
+    // iterative
+    // let stack = [start];
+    // let seen = new Set();
+    // let vals = [];
+
+    // while (stack.length){
+    //   let curr = stack.pop();
+    //   seen.add(curr);
+    //   vals.push(curr.value);
+
+    //   for (let neighbor of curr.adjacent){
+    //     if (!seen.has(neighbor)) {
+    //       stack.push(neighbor);
+    //       seen.add(neighbor);
+    //     }
+    //   }
+    // }
+
+    // return vals;
+  }
 
   // this function returns an array of Node values using BFS
-  breadthFirstSearch(start) {}
+  breadthFirstSearch(start) {
+
+  }
 }
 
 module.exports = {Graph, Node}
